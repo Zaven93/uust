@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+.disclosure-container {
+    padding-top: 50px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    & > .disclosure-container__summary {
+        // font-family: 'Source Sans Pro', sans-serif;
+        position: relative;
+        width: 80%;
+        height: 76px;
+        margin: 0 auto;
+        background: #ecf0f3;
+        display: flex;
+        align-items: center;
+        padding-left: 32px;
+        border-radius: 5px;
+
+        & > .disclosure-container__summary-content {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 137.5%;
+            color: #131f2b;
+        }
+
+        & > i {
+            position: absolute;
+            right: 33px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+
+            &.opened {
+                transform: translateY(-10px) rotate(-180deg);
+
+                &.clone {
+                    transform: translateY(-30px) rotate(-180deg);
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    & > .disclosure-container__details {
+        // font-family: 'Source Sans Pro', sans-serif;
+        width: 76.5%;
+        background: #f8fafb;
+        margin: 0 auto;
+        border: 1px solid #ecf0f3;
+        font-size: 12px;
+        color: #131f2b;
+        padding: 22px 32px;
+
+        &.opened {
+            animation: expand 0.3s forwards ease-in;
+        }
+
+        &.closed {
+            animation: collps 0.3s forwards ease-out;
+        }
+    }
+}
+
+@media (min-width: 760px) {
+    .disclosure-container {
+        & > .disclosure-container__details {
+            font-size: 22px;
+        }
+    }
+}
+
+@media (min-width: 990px) {
+    .disclosure-container {
+        & > .disclosure-container__summary {
+            width: 990px;
+        }
+
+        & > .disclosure-container__details {
+            width: 956px;
+        }
+    }
+}
+
+@keyframes expand {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    100% {
+        top: 286px;
+        opacity: 1;
+    }
+}
+
+@keyframes collps {
+    0% {
+        top: 286px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 0px;
+        opacity: 0;
+    }
+}
